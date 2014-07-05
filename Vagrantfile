@@ -7,6 +7,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puts "_Info_: Plugin '''vagrant-cachier''' is not installed."
   end
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+  end
+
   config.vm.box = "ubuntu/trusty64"
   config.vm.network "forwarded_port", guest: 8042, host: 8042
   config.vm.provision "shell" do |s|
